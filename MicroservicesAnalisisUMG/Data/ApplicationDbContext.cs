@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MicroservicesAnalisisUMG.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,6 +11,9 @@ namespace MicroservicesAnalisisUMG.Data
 {
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
+        // set Modules
+        public DbSet<Posit> Posit { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
