@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MicroservicesAnalisisUMG.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PositsController : ControllerBase
@@ -23,14 +24,12 @@ namespace MicroservicesAnalisisUMG.Controllers
         }
 
         // GET: Posits
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             return Ok(await _context.Posit.ToListAsync());
         }
 
-        [Authorize]
         [HttpGet("{id}")]
         // GET: Posits/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -53,7 +52,6 @@ namespace MicroservicesAnalisisUMG.Controllers
         // POST: Posits/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Posit posit)
         {
@@ -66,30 +64,12 @@ namespace MicroservicesAnalisisUMG.Controllers
             }
             return Ok(posit);
         }
-        /*
-
-        // GET: Posits/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var posit = await _context.Posit.FindAsync(id);
-            if (posit == null)
-            {
-                return NotFound();
-            }
-            return Ok(posit);
-        }
 
         // POST: Posits/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PositId,Titulo,Descripcion,FechaCreacion")] Posit posit)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Edit(int id, [FromBody] Posit posit)
         {
             if (id != posit.PositId)
             {
@@ -119,27 +99,8 @@ namespace MicroservicesAnalisisUMG.Controllers
             return Ok(posit);
         }
 
-        // GET: Posits/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var posit = await _context.Posit
-                .FirstOrDefaultAsync(m => m.PositId == id);
-            if (posit == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(posit);
-        }
-
         // POST: Posits/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var posit = await _context.Posit.FindAsync(id);
@@ -147,10 +108,10 @@ namespace MicroservicesAnalisisUMG.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        
         private bool PositExists(int id)
         {
             return _context.Posit.Any(e => e.PositId == id);
-        }*/
+        }
     }
 }
