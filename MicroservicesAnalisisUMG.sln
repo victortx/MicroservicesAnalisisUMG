@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroservicesAnalisisUMG", "MicroservicesAnalisisUMG\MicroservicesAnalisisUMG.csproj", "{B90CBF00-620F-4C82-986C-9D9E6C03BD0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B90CBF00-620F-4C82-986C-9D9E6C03BD0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90CBF00-620F-4C82-986C-9D9E6C03BD0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90CBF00-620F-4C82-986C-9D9E6C03BD0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90CBF00-620F-4C82-986C-9D9E6C03BD0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93A918BF-EC29-4ADC-8BE6-EA50BF270473}
+	EndGlobalSection
+EndGlobal
