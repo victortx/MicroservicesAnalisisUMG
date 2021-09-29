@@ -51,7 +51,7 @@ namespace MicroservicesAnalisisUMG
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<IdentityUser> userManager)
         {
             //Enable CORS
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -70,6 +70,8 @@ namespace MicroservicesAnalisisUMG
 
             app.UseRouting();
 
+            app.UseAuthorization();
+            ApplicationDbContext.SeedData(userManager).Wait();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

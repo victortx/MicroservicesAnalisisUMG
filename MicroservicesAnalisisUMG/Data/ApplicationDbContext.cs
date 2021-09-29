@@ -14,6 +14,25 @@ namespace MicroservicesAnalisisUMG.Data
         {
         }
 
+        public static async Task SeedData(UserManager<IdentityUser> userManager)
+        {
+            await SeedUsers(userManager);
+        }
+
+        public static async Task SeedUsers(UserManager<IdentityUser> userManager)
+        {
+            if(userManager.FindByNameAsync("victor").Result == null)
+            {
+                // create User in update database
+                var user = new IdentityUser
+                {
+                    UserName = "victorTx",
+                    Email = "victor@example.com",
+                };
+                _ = userManager.CreateAsync(user, "@Pass123").Result;
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
